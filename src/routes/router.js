@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router()
+const authRoute = require('./Auth')
+const adminRoute = require('./Admin')
 
-const { createUser } = require('../controllers/User')
+function route(app) {
+    app.use('/auth', authRoute)
+    app.use('/admin', adminRoute)
+}
 
-router.post('/create-user', createUser)
-
-module.exports = router
+module.exports = route

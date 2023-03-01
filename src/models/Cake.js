@@ -25,7 +25,7 @@ const CakeSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please provide size']
     },
-    shopId: {
+    createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         required: [true, 'Please provide shopId']
     },
