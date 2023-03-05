@@ -70,7 +70,7 @@ const deleteUser = async(req, res) => {
     if (!user) {
         throw new NotFoundError(`No user with id ${userId}`)
     }
-    res.status(StatusCodes.OK).json({ msg: `User with id: ${userId} has been deleted` })
+    res.status(StatusCodes.OK).json({ msg: `Delete successfully user with id: ${userId}` })
 }
 
 module.exports = { register, login, getAllUser, getUser, updateUser, deleteUser }
