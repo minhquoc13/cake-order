@@ -1,20 +1,22 @@
+require('express-async-errors');
+require('dotenv').config()
+
+
 const express = require('express')
+
 const helmet = require('helmet')
 const morgan = require('morgan')
 const cors = require('cors')
 const rfs = require("rotating-file-stream")
-const dotenv = require('dotenv')
 const path = require('path')
 const connectDB = require('./src/configs/connectDB')
 
 // import middlewares
-const notFound = require('./src/middlewares/not-found')
+const notFoundMiddleware = require('./src/middlewares/not-found')
 const errorHandlerMiddleware = require('./src/middlewares/error-handler')
 
 // import route
 const route = require('./src/routes/router')
-
-dotenv.config()
 
 const port = process.env.PORT || 3000
 const isProduction = process.env.NODE_ENV === 'production'
@@ -35,17 +37,21 @@ app.use(express.json())
 // route init
 route(app)
 
+// const authRoute = require('./src/routes/Auth')
+// app.use('/api/v1/auth', authRoute)
+
+// middlewares
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
+
 app.get('/', (req, res) => {
     res.json({ msg: 'Hello' })
 })
 
-// middlewares
-app.use(errorHandlerMiddleware)
-app.use(notFound)
 
 app.listen(port, async() => {
     try {
-        await connectDB(process.env.MONGO_URI_LOCAL)
+        await connectDB(process.env.MONGO_URI)
         console.log(`Connect database successfully!!!`)
         console.log(`App is listening on port ${port}`)
     } catch (error) {

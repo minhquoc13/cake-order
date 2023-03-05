@@ -1,16 +1,17 @@
+const CustomAPIError = require('../errors/custom-api')
 const { StatusCodes } = require('http-status-codes')
 const errorHandlerMiddleware = (err, req, res, next) => {
-
+    console.log("error handler middleware")
     let customError = {
         // set default
         statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
         msg: err.message || 'Something went wrong, try again later'
     }
 
-    if (err instanceof CustomAPIError) {
-        console.log('ERRORHANDLER')
-        return res.status(err.statusCode).json({ msg: err.message })
-    }
+    // if (err instanceof CustomAPIError) {
+    //     console.log('err')
+    //     return res.status(err.statusCode).json({ msg: err.message })
+    // }
 
     if (err.code && err.code === 11000) {
         customError.msg = `Duplicate value entered for ${Object.keys(err.keyValue)} field, please use another email`
