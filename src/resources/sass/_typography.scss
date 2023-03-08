@@ -1,0 +1,47 @@
+.text {
+    &-14 {
+        font-size: 14px;
+        line-height: calc(18/14);
+    }
+    &-16 {
+        font-size: 16px;
+        line-height: calc(21/16);
+    }
+    &-18 {
+        font-size: 18px;
+        line-height: calc(24/18);
+    }
+    &-20 {
+        font-size: 20px;
+        line-height: calc(26/20);
+    }
+    &-24 {
+        font-size: 24px;
+    }
+    &-36 {
+        font-size: 36px;
+        line-height: calc(21/16);
+    }
+    // colors 
+    &-white {
+        color: white;
+    }
+    &-black {
+        color: black;
+    }
+}
+
+.font {
+    &-light {
+        font-weight: 300;
+    }
+    &-normal {
+        font-weight: 400;
+    }
+    &-medium {
+        font-weight: 500;
+    }
+    &-bold {
+        font-weight: 700;
+    }
+}

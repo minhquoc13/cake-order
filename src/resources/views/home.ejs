@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <section class="hero">
+                <img class="hero-shapes" src="./images/hero-image.png" alt="">
+                <div class="container">
+                    <div class="hero-container">
+                        <div class="hero-content-container">
+                            <div class="hero-content">
+                                <h3 class="text-36 text-white font-bold hero-heading">
+                                    Your dream cake & cupcakes await
+                                </h3>
+                                <h3 class="text-16 text-white font-light hero-desc ">
+                                    Order custom cakes & cupcakes online. Pick up at your local Walmart Bakery.
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="intro">
+                <div class="container">
+                    <div class="intro-container">
+                        <img class="intro-shapes" src="./images/intro-bg.png" alt="">
+                        <div class="intro-list">
+                            <div class="intro-item">
+                                <div class="intro-item-icon">
+                                    <img src="./images/intro-icon1.png" alt="">
+                                </div>
+                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                            </div>
+                            <div class="intro-item">
+                                <div class="intro-item-icon">
+                                    <img src="./images/intro-icon2.png" alt="">
+                                </div>
+                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                            </div>
+                            <div class="intro-item">
+                                <div class="intro-item-icon">
+                                    <img src="./images/intro-icon2.png" alt="">
+                                </div>
+                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cake">
+                <div class="container">
+                    <div class="cake-container">
+                        <div class="cake-list">
+                            <% items.forEach(function(item) { %>
+                                <div class="cake-item">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="./images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <a href="#">
+                                        <h5 class="text-18 font-medium cake-name">
+                                            <%= item.name %>
+                                                <%= item.size[0] %>
+                                        </h5>
+                                    </a>
+                                    <div class="cake-sizes">
+                                        <% for (let i = 0; i < item.size.length; i++)  { %>
+                                            <span class="cake-size"><%= item.size[i] %></span>
+                                            <% } %>
+                                    </div>
+                                    <span class="text-16 font-medium cake-price"><%= item.price %> đ</span>
+                                    <span class="text-14 font-normal cake-delivery_price">
+                                        Free pickup 
+                                    </span>
+                                    <a href="#" class="button cake-button_buy">Order now</a>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -2,13 +2,15 @@ require('express-async-errors');
 require('dotenv').config()
 
 const express = require('express')
-
+const ejs = require('ejs')
 const path = require('path')
+const expressLayout = require('express-ejs-layouts')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoDbStore = require('connect-mongo')
 const passpport = require('passport')
 
+//sercurity & log
 const helmet = require('helmet')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -50,7 +52,16 @@ const accessLogStream = rfs.createStream("access.log", {
 })
 app.use(isProduction ? morgan("combined", { stream: accessLogStream }) : morgan("dev"))
 app.use(cors())
+
+// assets
+app.use(express.static('./src/public'))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
+
+// set Template engine
+app.use(expressLayout)
+app.set('views', path.join(__dirname, '/src/resources/views'))
+app.set('view engine', 'ejs')
 
 // global middleware
 app.use((req, res, next) => {
@@ -61,9 +72,6 @@ app.use((req, res, next) => {
 // route init
 route(app)
 
-app.get('/', (req, res) => {
-    res.json({ msg: 'Hello' })
-})
 
 
 app.listen(port, async() => {

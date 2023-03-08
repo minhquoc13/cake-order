@@ -1,0 +1,33 @@
+body {
+    font-family: $font;
+    line-height: 1;
+    font-weight: 400;
+    color: black;
+    font-size: 16px;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+}

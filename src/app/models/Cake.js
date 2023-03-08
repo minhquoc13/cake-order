@@ -17,11 +17,13 @@ const CakeSchema = mongoose.Schema({
         type: String,
     },
     price: {
-        type: Number,
-        required: [true, 'Please provide price']
+        type: [String],
+        required: [true, 'Please provide price'],
+        default: '0',
     },
     size: {
-        type: String,
+        type: [String],
+        enum: ['S', 'M', 'L', 'XL', 'custom'],
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,

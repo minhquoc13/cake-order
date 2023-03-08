@@ -1,3 +1,4 @@
+const homeRoute = require('./Home')
 const authRoute = require('./Auth')
 const adminRoute = require('./Admin')
 const cakeRoute = require('./Cake')
@@ -10,6 +11,7 @@ const notFoundRoute = require('../app/middlewares/not-found')
 const authenticateUser = require('../app/middlewares/authentication')
 
 function route(app) {
+    app.use('/', homeRoute)
     app.use('/api/v1/auth', authRoute)
     app.use('/api/v1/admin', adminRoute)
     app.use('/api/v1/cake', authenticateUser, cakeRoute)
