@@ -7,23 +7,13 @@ const CakeSchema = mongoose.Schema({
     },
     desc: {
         type: String,
-        // required: [true, 'Please provide description']
-    },
-    type: {
-        type: String,
-        // required: [true, 'Please provide type']
-    },
-    flavor: {
-        type: String,
     },
     price: {
-        type: [String],
-        required: [true, 'Please provide price'],
-        default: '0',
+        type: String,
     },
     size: {
-        type: [String],
-        enum: ['S', 'M', 'L', 'XL', 'custom'],
+        type: Object,
+        required: [true, 'Please provide size & price'],
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +21,6 @@ const CakeSchema = mongoose.Schema({
     discountId: {
         type: mongoose.Schema.Types.ObjectId,
     },
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Cake', CakeSchema)
