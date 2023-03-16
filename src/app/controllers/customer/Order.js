@@ -1,5 +1,5 @@
-const Order = require('../models/Order')
-const { BadRequestError } = require('../errors/index')
+const Order = require('../../models/Order')
+const { BadRequestError } = require('../../errors/index')
 const { StatusCodes } = require('http-status-codes')
 
 // const createOrder = (req, res) => {
@@ -61,14 +61,15 @@ const createOrder = (req, res) => {
 
 const index = async(req, res) => {
     const orders = await Order.find({ customerId: req.user._id }, null, { sort: { 'createdAt': -1 } })
+        // const orders = await Order.find({ customerId: '6404838399da41bbcd57370c' }, null, { sort: { 'createdAt': -1 } })
     res.json(orders)
 }
 
-const getOrder = async(req, res) => {
+const getSingleOrder = async(req, res) => {
     const order = await Order.findById(req.params.id)
     if (req.user._id.toString() === order.customerId.toString()) {
         res.json(order)
     }
 }
 
-module.exports = { createOrder, getOrder, index }
+module.exports = { createOrder, getSingleOrder, index }
