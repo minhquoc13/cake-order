@@ -4,7 +4,6 @@ const { BadRequestError, NotFoundError, UnauthenticatedError } = require('../err
 
 const createCake = async(req, res) => {
     req.body.createdBy = req.user.userId
-    console.log(req.user.userId)
     const cake = await Cake.create({...req.body })
     res.status(StatusCodes.CREATED).json({ cake })
 }

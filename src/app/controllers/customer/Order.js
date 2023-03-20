@@ -72,4 +72,12 @@ const getSingleOrder = async(req, res) => {
     }
 }
 
+const deleteOrder = async(req, res) => {
+    const order = Order.findOneAndDelete({ _id: req.params.id })
+    if (!order) {
+        throw new NotFoundError(`No Order with id ${req.params.id}`)
+    }
+    res.status(StatusCodes.OK).json({ msg: `Cake with id: ${cakeId} has been deleted` })
+}
+
 module.exports = { createOrder, getSingleOrder, index }

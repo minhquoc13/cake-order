@@ -8,7 +8,7 @@ const expressLayout = require('express-ejs-layouts')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoDbStore = require('connect-mongo')
-const passpport = require('passport')
+const passport = require('passport')
 
 //sercurity & log
 const helmet = require('helmet')
@@ -16,10 +16,6 @@ const morgan = require('morgan')
 const cors = require('cors')
 const rfs = require("rotating-file-stream")
 const connectDB = require('./src/app/configs/connectDB')
-
-// import middlewares
-const notFoundMiddleware = require('./src/app/middlewares/not-found')
-const errorHandlerMiddleware = require('./src/app/middlewares/error-handler')
 
 // import route
 const route = require('./src/routes/router')
@@ -43,6 +39,12 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hour
 }))
+
+// Passport config
+const passportInit = require('./src/app/configs/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 
 // middlewares
 app.use(helmet())
