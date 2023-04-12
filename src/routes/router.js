@@ -12,7 +12,7 @@ const authenticateUser = require('../app/middlewares/authentication')
 
 function route(app) {
     app.use('/', homeRoute)
-    app.use('/api/v1/auth', authRoute)
+    app.use('/', authRoute)
     app.use('/api/v1/admin', adminRoute)
     app.use('/api/v1/cake', authenticateUser, cakeRoute)
     app.use('/api/v1/cart', cartRoute)

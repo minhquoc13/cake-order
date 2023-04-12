@@ -6,6 +6,7 @@ const ejs = require('ejs')
 const path = require('path')
 const expressLayout = require('express-ejs-layouts')
 const session = require('express-session')
+const flash = require('express-flash')
 const mongoose = require('mongoose')
 const MongoDbStore = require('connect-mongo')
 const passport = require('passport')
@@ -46,6 +47,8 @@ passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(flash())
+
 // middlewares
 app.use(helmet())
 const accessLogStream = rfs.createStream("access.log", {
@@ -62,7 +65,7 @@ app.use(express.json())
 
 // set Template engine
 app.use(expressLayout)
-app.set('views', path.join(__dirname, '/src/resources/views'))
+app.set('views', path.join(__dirname, 'src/resources/views'))
 app.set('view engine', 'ejs')
 
 // global middleware
