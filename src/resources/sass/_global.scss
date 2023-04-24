@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     font-family: $font;
     line-height: 1;
     font-weight: 400;
@@ -7,9 +8,15 @@ body {
     background-color: white;
 }
 
-a {
+a,
+span {
     text-decoration: none;
     color: inherit;
+    display: block;
+}
+
+img {
+    max-width: 100%;
 }
 
 h1,
@@ -29,5 +36,23 @@ p {
 
 .container {
     max-width: 1360px;
+    padding: 0 15px;
     margin: 0 auto;
+}
+
+.button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    border-radius: 5px;
+    border: none;
+    white-space: nowrap;
+}
+
+.size-actived {
+    border: 3px solid green;
 }

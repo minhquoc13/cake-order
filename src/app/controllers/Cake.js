@@ -3,7 +3,17 @@ const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError, UnauthenticatedError } = require('../errors/')
 
 const createCake = async(req, res) => {
-    req.body.createdBy = req.user.userId
+    // req.body.createdBy = req.user['id']
+    req.body.createdBy = 'shop'
+    const size = req.body.size
+    const lastPriceProp = Object.keys(size).pop();
+    const lastPrice = size[lastPriceProp]
+    const firstPrice = size[Object.keys(size)[0]]
+    const price = firstPrice + ' - ' + lastPrice
+    req.body['priceDisplay'] = price
+        // handle size to display
+    let sizeDisplay = Object.keys(req.body['size'])
+    req.body['sizeDisplay'] = sizeDisplay
     const cake = await Cake.create({...req.body })
     res.status(StatusCodes.CREATED).json({ cake })
 }
@@ -19,11 +29,6 @@ const getCake = async(req, res) => {
     if (!cake) {
         throw new NotFoundError(`Cant find Cake with id: ${cakeId}`)
     }
-    const size = cake['size']
-    const lastPrice = Object.keys(size).pop();
-    const firstPrice = size[Object.keys(size)[0]]
-    const price = firstPrice + ' - ' + lastPrice
-    cake['price'] = price
     res.status(StatusCodes.OK).json({ cake })
 }
 
@@ -68,4 +73,10 @@ const deleteCake = async(req, res) => {
     res.status(StatusCodes.OK).json({ msg: `Cake with id: ${cakeId} has been deleted` })
 }
 
-module.exports = { createCake, getAllCake, getCakeOfShop, getCake, updateCake, deleteCake }
+const viewCake = async(req, res) => {
+    const cakeId = req.params.id
+    const cake = await Cake.findOne({ _id: cakeId })
+    res.render('cake-detail', { cake })
+}
+
+module.exports = { createCake, getAllCake, getCakeOfShop, getCake, updateCake, deleteCake, viewCake }

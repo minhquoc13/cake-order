@@ -1,6 +1,9 @@
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
     max-width: 100%;
-    background-color: $header-color;
+    background-color: $primary-color;
     &-container {
         height: 88px;
         display: flex;
@@ -8,13 +11,68 @@
         justify-content: space-between;
         padding: 0 10px;
     }
-    &-menu {
+    &-right {
         display: flex;
         align-items: center;
         gap: 0 20px;
     }
+    &-login {
+        display: flex;
+        align-items: center;
+    }
 }
 
+// username & photo
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-photo {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100rem;
+}
+
+.username {
+    font-size: 16px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    z-index: 99;
+    color: #000;
+}
+
+.dropdown-item {
+    padding: 7px 5px;
+    font-size: 18px;
+    transition: 0.2s ease-in;
+}
+
+.dropdown-item:hover {
+    background-color: #b3cde0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+// 
 .hero {
     position: relative;
     max-width: 1360px;
@@ -26,6 +84,8 @@
         height: 250px;
     }
     &-shapes {
+        width: 1360px;
+        max-width: 1360px;
         position: absolute;
         display: block;
         bottom: 0;
@@ -59,17 +119,13 @@
         height: 410px;
     }
     &-shapes {
+        width: 1360px;
+        max-width: 1360px;
         position: absolute;
-        top: 0;
+        display: block;
         bottom: 0;
         left: 0;
-        right: 0;
         z-index: -1;
-        height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
-        width: 100%;
-        display: block;
     }
     &-list {
         display: flex;
@@ -85,7 +141,6 @@
         justify-content: center;
         flex-direction: column;
         &-icon {
-            max-width: 85px;
             margin-bottom: 15px;
         }
         &-heading {
@@ -99,25 +154,42 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
     }
-    &-item {
+    &-item-container {
+        padding: 20px;
+        flex-basis: 25%;
         display: flex;
         flex-direction: column;
-        padding: 20px;
-        border-bottom: 1px solid #e6e7e8;
-        transition: transform 0.5s ease-in-out;
     }
-    &-item:hover {
-        background-color: rgb(241, 236, 236);
+    &-item {
+        flex-basis: 25%;
+        border-bottom: 1px solid #e6e7e8;
+        transition: transform 0.4s;
+    }
+    &-thumbnail:hover {
         img {
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.3s;
             object-fit: contain;
             transform: scale(1.2);
         }
     }
     &-thumbnail {
-        margin-bottom: 30px;
         overflow: hidden;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
     }
     &-name {
         margin-bottom: 20px;
@@ -134,9 +206,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 100rem;
         width: fit-content;
         line-height: 1;
-        border-radius: 100rem;
     }
     &-size:nth-child(1) {
         background-color: #e6e6ea;
@@ -160,6 +232,7 @@
         margin-bottom: 20px;
     }
     &-button_buy {
+        cursor: pointer;
         border: 0;
         padding: 10px;
         border-radius: 100rem;
@@ -172,5 +245,140 @@
     }
     &-button_buy:hover {
         box-shadow: inset 0 0 0 2px #000;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0;
+    }
+    .intro-list {
+        padding: 0 10px;
+    }
+    .cake-item {
+        flex-basis: 33.333333333%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header-container {
+        padding: 0 10px 0 0;
+    }
+    .header-title {
+        font-size: 20px;
+    }
+    .header-login {
+        font-size: 18px;
+    }
+    .username {
+        display: none;
+    }
+    .hero {
+        margin-bottom: 0;
+    }
+    .hero-heading {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .hero-desc {
+        font-weight: 400;
+        font-size: 16px;
+        max-width: none;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content-container {
+        padding: 0;
+        justify-content: center;
+    }
+    .intro-container {
+        height: 100%;
+        padding: 20px 0;
+    }
+    .intro-list {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
+    }
+    .intro-item {
+        flex-direction: row;
+        gap: 0 20px;
+    }
+    .intro-item-icon {
+        max-width: 70px;
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        margin: 0;
+        img {
+            object-fit: contain;
+            width: 100%;
+            margin: auto;
+        }
+    }
+    .intro-item-content {
+        width: 100%;
+        text-align: left;
+    }
+    .intro-item-heading {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .intro-item-desc {
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .cake-list {
+        padding: 0;
+    }
+    .cake-item {
+        flex-basis: 100%;
+    }
+    .cake-item-container {
+        flex-direction: row;
+        gap: 10px;
+        padding: 12px 10px;
+        align-items: center;
+    }
+    .cake-thumbnail {
+        flex-basis: 50%;
+        height: 140px;
+        margin-bottom: 0;
+        a {
+            height: 100%;
+        }
+        img {
+            max-height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .cake-content {
+        flex-basis: 50%;
+        width: 50%;
+    }
+    .cake-name {
+        font-size: 14px;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+    .cake-list {
+        .cake-sizes {
+            display: none;
+        }
+    }
+    .cake-price {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    .cake-delivery_price {
+        margin-bottom: 10px;
+    }
+    .cake-button_buy {
+        font-size: 14px;
+        padding: 7px;
     }
 }

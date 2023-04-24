@@ -1,18 +1,30 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const orderSchema = new Schema({
-    customerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+const cartSchema = new Schema({
+    userId: {
+        type: String,
+        required: true,
+    },
+    items: {
+        type: [{
+            item: {
+                cake: {
+                    type: Object,
+                    required: true
+                }
+            }
+        }],
         required: true
     },
-    items: { type: Object, required: true },
-    phone: { type: String, required: true },
-    address: { type: String, required: true },
-    paymentType: { type: Strisng, default: 'COD' },
-    paymentStatus: { type: Boolean, default: false },
-    status: { type: String, default: 'order_placed' },
+    totalQty: {
+        type: Number,
+        default: 0
+    },
+    totalPrice: {
+        type: Number,
+        default: 0
+    }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Order', orderSchema)
+module.exports = mongoose.model('Cart', cartSchema)

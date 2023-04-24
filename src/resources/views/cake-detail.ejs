@@ -1,0 +1,399 @@
+<head>
+    <title>Detail</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <section class="cake-detail">
+            <div class="container">
+                <div class="cake-container">
+                    <div class="cake-image">
+                        <section id="main-carousel" class="splide" aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel.">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="/images/cake-image1.png" alt="">
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="/images/cake-image2.png" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section id="thumbnail-carousel" class="splide" aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel.">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="/images/cake-image1.png" alt="">
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="/images/cake-image2.png" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="cake-content">
+                        <div class="cake-content-wrapper">
+                            <h3 class="cake-name">
+                                <%= cake.name %>
+                            </h3>
+                            <span class="cake-price"><%= cake.priceDisplay %> VND</span>
+                            <div class="cake-sizes">
+                                <% for (let i = 0; i < cake.sizeDisplay.length; i++)  { %>
+                                    <span class="cake-size"><%= cake.sizeDisplay[i] %></span>
+                                    <% } %>
+                            </div>
+                            <div class="cake-counter">
+                                <span class="minus">-</span>
+                                <input type="text" value="1" />
+                                <span class="plus">+</span>
+                            </div>
+                            <a class="button cake-button_add-to-cart" href="#">Add to cart</a>
+                            <div class="cake-desc">
+                                <h4 class="cake-desc-title">Descriptions</h4>
+                                <p class="cake-desc-content">
+                                    <%= cake.desc %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cake-detail-related">
+            <div class="container">
+                <div class="cake-detail-related-container">
+                    <div class="cake-of-shop">
+                        <h2 class="cake-detail-related-title">Other cakes of shop</h2>
+                        <div class="cake-list">
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="button cake-detail-related-button-view_all" href=""><span>View all</span>
+                                    <img class="cake-detail-related-button-view_all-icon" src="/images/arrow-right-solid.svg" alt="">
+                                </a>
+                        </div>
+                    </div>
+                    <div class="cake-of-shop">
+                        <h2 class="cake-detail-related-title">Best seller</h2>
+                        <div class="cake-list">
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="button cake-detail-related-button-view_all" href=""><span>View all</span>
+                                    <img class="cake-detail-related-button-view_all-icon" src="/images/arrow-right-solid.svg" alt="">
+                                </a>
+                        </div>
+                    </div>
+                    <div class="cake-newest">
+                        <h2 class="cake-detail-related-title">Newest Cakes</h2>
+                        <div class="cake-list">
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cake-item">
+                                <div class="cake-item-container">
+                                    <div class="cake-thumbnail">
+                                        <a href="#" class="">
+                                            <img src="/images/cake-image1.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cake-content">
+                                        <a href="#">
+                                            <h5 class="text-18 font-medium cake-name">Fully Customizable Sheet Cake</h5>
+                                        </a>
+                                        <div class="cake-sizes">
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">S</span>
+                                            <span class="cake-size">Custom</span>
+                                        </div>
+                                        <span class="text-16 font-medium cake-price">$10.98 - $58.76</span>
+                                        <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                        <a href="#" class="button cake-button_buy">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="button cake-detail-related-button-view_all" href=""><span>View all</span>
+                                    <img class="cake-detail-related-button-view_all-icon" src="/images/arrow-right-solid.svg" alt="">
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

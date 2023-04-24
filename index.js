@@ -50,7 +50,7 @@ app.use(passport.session())
 app.use(flash())
 
 // middlewares
-app.use(helmet())
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 const accessLogStream = rfs.createStream("access.log", {
     interval: "1d",
     path: path.join(__dirname, "log")
@@ -71,13 +71,12 @@ app.set('view engine', 'ejs')
 // global middleware
 app.use((req, res, next) => {
     res.locals.session = req.session
+    res.locals.user = req.user;
     next()
 })
 
 // route init
 route(app)
-
-
 
 app.listen(port, async() => {
     try {

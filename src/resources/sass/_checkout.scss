@@ -1,0 +1,260 @@
+.checkout {
+    margin-top: 50px;
+    &-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    &-summary {
+        max-width: 100%;
+        width: 100%;
+    }
+    &-header {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: white;
+        font-weight: bold;
+        border-bottom: 2px solid #e6e7e8;
+    }
+    &-products {
+        flex-basis: 45%;
+    }
+    &-size {
+        flex-basis: 12%;
+        text-align: center;
+    }
+    &-price {
+        text-align: center;
+    }
+    &-quantity {
+        text-align: center;
+    }
+    &-amount {
+        text-align: center;
+    }
+    &-list {
+        &-header {
+            margin-bottom: 10px;
+            border: 1px solid #e6e7e8;
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+            padding: 20px;
+        }
+        &-header-shop {
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+        }
+        &-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid #e6e7e8;
+    }
+    &-item-main {
+        display: flex;
+        flex-basis: 45%;
+        align-items: center;
+        gap: 0 20px;
+    }
+    &-item-name {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    &-item-image {
+        max-width: 120px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+    &-item-size {
+        width: 12%;
+        text-align: center;
+        font-weight: 500;
+    }
+    &-item-price {
+        text-align: center;
+    }
+    &-item-quantity {
+        text-align: center;
+    }
+    &-item-amount {
+        text-align: center;
+        font-weight: 500;
+        font-size: 18px;
+        color: $primary-color;
+    }
+    &-fees {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-top: 20px;
+        padding-right: 20px;
+        &-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            &-subtotal,
+            &-shipping-fee,
+            &-total {
+                width: 90px;
+                color: $gray-dark-blur;
+                font-size: 17px;
+                font-weight: 500;
+            }
+            &-total {
+                color: black;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    }
+    &-shipping {
+        max-width: 400px;
+        width: 100%;
+        form {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input,
+        select {
+            max-width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+    }
+    &-form {
+        margin-top: 30px;
+    }
+    &-delivery-type {
+        margin-top: 10px;
+        &-heading {
+            margin-bottom: 10px;
+        }
+        &-desc {
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        label:hover {
+            background-color: #f2f2f2;
+        }
+        input[type="radio"]:checked+label {
+            background-color: #4CAF50;
+            color: white;
+        }
+    }
+    &-button {
+        background-color: $primary-color;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 4px;
+        max-width: 100%;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    &-button:hover {
+        opacity: 0.8;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .checkout-container {
+        padding: 0px 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+    .checkout-shipping {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+    .checkout-shipping {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .checkout {
+        margin-top: 20px;
+    }
+    .checkout-container {
+        gap: 20px;
+    }
+    .checkout-summary {
+        padding-bottom: 10px;
+        border-bottom: 3px solid #e6e7e8;
+    }
+    .checkout-heading {
+        font-size: 22px;
+    }
+    .checkout-header {
+        padding: 10px 10px;
+    }
+    .checkout-list-header {
+        padding: 10px;
+    }
+    .checkout-item {
+        padding: 10px;
+    }
+    .checkout-fees {
+        margin-top: 10px;
+        padding-right: 0;
+    }
+    .checkout-item-name,
+    .checkout-item-price,
+    .checkout-item-amount {
+        font-size: 14px;
+    }
+    .checkout-fees-group-subtotal,
+    .checkout-fees-group-shipping-fee {
+        font-size: 15px;
+    }
+    .checkout-fees-group-total {
+        font-size: 16px;
+    }
+}

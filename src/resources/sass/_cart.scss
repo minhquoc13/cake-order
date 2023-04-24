@@ -1,0 +1,153 @@
+.cart {
+    margin-top: 30px;
+    &-header {
+        display: flex;
+        align-items: center;
+        padding: 20px 20px;
+        background-color: lightgray;
+    }
+    &-checkbox {
+        min-width: 50px;
+        input {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    &-products {
+        width: 45%;
+    }
+    &-size {
+        width: 11%;
+        text-align: center;
+    }
+    &-price {
+        width: 11%;
+        text-align: center;
+    }
+    &-quantity {
+        width: 11%;
+        text-align: center;
+    }
+    &-amount {
+        width: 11%;
+        text-align: center;
+    }
+    &-options {
+        width: 11%;
+        text-align: center;
+    }
+    &-list {
+        margin-top: 50px;
+        &-header {
+            margin-bottom: 10px;
+            border: 1px solid #e6e7e8;
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+            padding: 20px;
+        }
+        &-checkbox {
+            input {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        &-header-shop {
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+        }
+        &-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &-item {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid #e6e7e8;
+    }
+    &-item-checkbox {
+        min-width: 50px;
+        input {
+            width: 16px;
+            height: 16px;
+        }
+    }
+    &-item-main {
+        width: 45%;
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+    }
+    &-item-name {
+        font-size: 18px;
+        font-weight: medium;
+    }
+    &-item-image {
+        max-width: 120px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+    &-item-size {
+        width: 11%;
+        text-align: center;
+        select {
+            font-size: 15px;
+            padding: 5px;
+        }
+    }
+    &-item-price {
+        width: 11%;
+        text-align: center;
+    }
+    &-item-quantity {
+        width: 11%;
+        text-align: center;
+    }
+    &-item-counter {
+        display: flex;
+        justify-content: center;
+        gap: 0 3px;
+        span {
+            cursor: pointer;
+        }
+        .minus,
+        .plus {
+            width: 16px;
+            height: 16px;
+            font-weight: bold;
+            background: #f2f2f2;
+            border-radius: 4px;
+            padding: 8px 5px 8px 5px;
+            border: 1px solid #ddd;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &-item-amount {
+        width: 11%;
+        text-align: center;
+        font-weight: 500;
+        font-size: 18px;
+        color: $primary-color;
+    }
+    &-item-options {
+        width: 11%;
+        text-align: center;
+    }
+}

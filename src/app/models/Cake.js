@@ -9,18 +9,27 @@ const CakeSchema = mongoose.Schema({
         type: String,
     },
     price: {
+        type: Number,
+    },
+    priceDisplay: {
         type: String,
     },
     size: {
         type: Object,
         required: [true, 'Please provide size & price'],
     },
+    sizeDisplay: {
+        type: Array,
+    },
     createdBy: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
     },
     discountId: {
         type: mongoose.Schema.Types.ObjectId,
     },
+    qty: {
+        type: Number,
+    }
 }, { timestamps: true })
 
 module.exports = mongoose.model('Cake', CakeSchema)

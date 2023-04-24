@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-const { createCake, getAllCake, getCakeOfShop, getCake, updateCake, deleteCake } = require('../app/controllers/Cake')
+const { createCake, getAllCake, getCakeOfShop, getCake, updateCake, deleteCake, viewCake } = require('../app/controllers/Cake')
 
-router.post('/', createCake)
-router.get('/', getAllCake)
-router.get('/shop/:shopId', getCakeOfShop)
-router.get('/:id', getCake)
-router.patch('/:id', updateCake)
-router.delete('/:id', deleteCake)
+router.get('/cake/:id', viewCake)
+router.post('/api/v1/cake', createCake)
+router.get('/api/v1/cake', getAllCake)
+router.get('/api/v1/cake/shop/:shopId', getCakeOfShop)
+router.get('/api/v1/cake/:id', getCake)
+router.patch('/api/v1/cake/:id', updateCake)
+router.delete('/api/v1/cake/:id', deleteCake)
 
 module.exports = router

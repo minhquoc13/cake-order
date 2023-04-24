@@ -119,7 +119,6 @@ const login = (req, res) => {
 
 
 const googleAuthCallback = (req, res) => {
-    console.log('2')
     passport.authenticate('google', {
         successRedirect: '/',
         failureRedirect: '/auth/failure'
@@ -133,7 +132,7 @@ const authFailedCallback = (req, res) => {
 
 const logout = (req, res) => {
     req.logout()
-    return res.redirect('/login')
+    return res.redirect('/')
 }
 
 module.exports = { register, login, googleAuthCallback, authFailedCallback, logout }

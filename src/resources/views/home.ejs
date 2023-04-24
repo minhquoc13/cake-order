@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
 <body>
     <div class="wrapper">
         <main class="main">
@@ -37,22 +27,28 @@
                                 <div class="intro-item-icon">
                                     <img src="./images/intro-icon1.png" alt="">
                                 </div>
-                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
-                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                <div class="intro-item-content">
+                                    <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                    <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                </div>
                             </div>
                             <div class="intro-item">
                                 <div class="intro-item-icon">
                                     <img src="./images/intro-icon2.png" alt="">
                                 </div>
-                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
-                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                <div class="intro-item-content">
+                                    <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                    <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                </div>
                             </div>
                             <div class="intro-item">
                                 <div class="intro-item-icon">
                                     <img src="./images/intro-icon2.png" alt="">
                                 </div>
-                                <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
-                                <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                <div class="intro-item-content">
+                                    <h5 class="text-20 font-bold intro-item-heading">Design your cake or cupcakes</h5>
+                                    <span class="text-18 font-light intro-item-desc">Choose from our many flavors & decorative options.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,27 +60,31 @@
                         <div class="cake-list">
                             <% items.forEach(function(item) { %>
                                 <div class="cake-item">
-                                    <div class="cake-thumbnail">
-                                        <a href="#" class="">
-                                            <img src="./images/cake-image1.png" alt="">
-                                        </a>
+                                    <div class="cake-item-container">
+                                        <div class="cake-thumbnail">
+                                            <a href="/cake/<%= item.id %>" class="">
+                                                <img src="./images/cake-image1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="cake-content">
+                                            <a href="#">
+                                                <h5 class="text-18 font-medium cake-name">
+                                                    <%= item.name %>
+                                                </h5>
+                                            </a>
+                                            <div class="cake-sizes">
+                                                <% for (let i = 0; i < item.sizeDisplay.length; i++)  { %>
+                                                    <span class="cake-size" data-id="<%= item._id %>" data-size="<%= item.sizeDisplay[i] %>" data-price="<%= item.size[item.sizeDisplay[i]] %>" data-cake="<%= JSON.stringify(item) %>">
+                                                        <%= item.sizeDisplay[i] %></span>
+                                                    <% } %>
+                                            </div>
+                                            <span class="text-16 font-medium cake-price <%= item._id %>"><%= item.priceDisplay %> VND</span>
+                                            <span class="text-14 font-normal cake-delivery_price">
+                                            Free pickup
+                                        </span>
+                                            <a id="<%= item._id %>" class="button cake-button_buy" data-cake="">Add to cart</a>
+                                        </div>
                                     </div>
-                                    <a href="#">
-                                        <h5 class="text-18 font-medium cake-name">
-                                            <%= item.name %>
-                                                <%= item.size[0] %>
-                                        </h5>
-                                    </a>
-                                    <div class="cake-sizes">
-                                        <% for (let i = 0; i < item.size.length; i++)  { %>
-                                            <span class="cake-size"><%= item.size[i] %></span>
-                                            <% } %>
-                                    </div>
-                                    <span class="text-16 font-medium cake-price"><%= item.price %> đ</span>
-                                    <span class="text-14 font-normal cake-delivery_price">
-                                        Free pickup 
-                                    </span>
-                                    <a href="#" class="button cake-button_buy">Order now</a>
                                 </div>
                                 <% }) %>
                         </div>

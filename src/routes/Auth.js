@@ -23,7 +23,7 @@ router.get('/auth/failure', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout()
-    return res.redirect('/login')
+    return res.redirect('/')
 })
 
 
