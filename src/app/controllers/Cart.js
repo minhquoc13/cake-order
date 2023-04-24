@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Cart = require('../models/Cart')
 
 const index = (req, res) => {
-    res.render('customer/cart')
+    res.render('customers/cart')
 }
 
 const updateCart = (req, res) => {
@@ -18,37 +18,13 @@ const updateCart = (req, res) => {
     // for the first time creating cart and adding basic object structure
     if (!req.session.cart) {
         req.session.cart = {
+            userId: req.user.id,
             items: {},
             totalQty: 0,
             totalPrice: 0
         }
     }
     let cart = req.session.cart
-        // console.log(cart.items[req.body._id]['item']['size'])
-
-    // Check if item does not exist in cart
-    // if (!cart.items[req.body._id]) {
-    //     cart.items[req.body._id] = {
-    //         item: req.body,
-    //         qty: 1
-    //     }
-    //     cart.totalQty = cart.totalQty + 1
-    //     cart.totalPrice = cart.totalPrice + req.body.price
-    // } else {
-    //     if (cart.items[req.body._id]['item']['size'] == req.body.size) {
-    //         cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1
-    //         cart.totalQty = cart.totalQty + 1
-    //         cart.totalPrice = cart.totalPrice + req.body.price
-    //     } else if (cart.items[req.body._id]['item']['size'] !== req.body.size) {
-    //         const objectId = new mongoose.Types.ObjectId()
-    //         cart.items[objectId] = {
-    //             item: req.body,
-    //             qty: 1
-    //         }
-    //         cart.totalQty = cart.totalQty + 1
-    //         cart.totalPrice = cart.totalPrice + req.body.price
-    //     }
-    // }
     if (!cart.items[`${req.body._id}-${req.body.size}`]) {
         cart.items[`${req.body._id}-${req.body.size}`] = {
             item: req.body,
