@@ -5,7 +5,7 @@ cakeSizes.forEach((btn) => {
         const size = btn.dataset.size
         const price = btn.dataset.price
         const addToCartButton = document.getElementById(cakeId)
-        const allSize = btn.parentNode.children
+        const allSizeActived = Array.from(document.getElementsByClassName('size-actived'))
 
         // change price
         const priceCake = document.getElementsByClassName(cakeId)[0]
@@ -13,11 +13,13 @@ cakeSizes.forEach((btn) => {
         const originalPrice = cake['priceDisplay'] + ' VND'
         priceCake.textContent = price + ' VND'
             // click size 
-        for (let i = 0; i < allSize.length; i++) {
-            if (allSize[i].classList.contains('size-actived') && btn !== allSize[i]) {
-                allSize[i].classList.remove('size-actived')
-            }
-        }
+        allSizeActived.forEach(box => {
+            // ✅ Remove class from each element
+            box.classList.remove('size-actived');
+
+            // ✅ Add class to each element
+            // box.classList.add('small');
+        });
         if (btn.classList.contains('size-actived')) {
             btn.classList.remove('size-actived')
             addToCartButton.setAttribute("data-cake", "")

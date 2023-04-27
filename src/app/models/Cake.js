@@ -22,7 +22,7 @@ const CakeSchema = mongoose.Schema({
         type: Array,
     },
     createdBy: {
-        type: String,
+        shop: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     },
     discountId: {
         type: mongoose.Schema.Types.ObjectId,

@@ -27,62 +27,72 @@
                             <span class="cart-list-shop_name font-bold">Bakery Shop</span>
                         </div>
                     </div>
-                    <div class="cart-item">
-                        <div class="cart-item-checkbox">
-                            <input type="checkbox">
-                        </div>
-                        <a class="cart-item-main" href="">
-                            <div class="cart-item-image">
-                                <img src="/images/cake-image1.png" alt="">
+                    <% cartItemsArray.forEach(function(item) { %>
+                        <div class="cart-item">
+                            <div class="cart-item-checkbox">
+                                <input type="checkbox">
                             </div>
-                            <div class="cart-item-name">Fully Customizable Sheet Cake</div>
-                        </a>
-                        <div class="cart-item-size"><select>
+                            <a class="cart-item-main" href="">
+                                <div class="cart-item-image">
+                                    <img src="/images/cake-image1.png" alt="">
+                                </div>
+                                <div class="cart-item-name">
+                                    <%=item.item.name%>
+                                </div>
+                            </a>
+                            <div class="cart-item-size">
+                                <select>
+                                <option value="<%=item.item.size%>"><%=item.item.size%></option>
                                 <option value="0">S</option>
                                 <option value="0">M</option>
                                 <option value="0">L</option>
                               </select></div>
-                        <div class="cart-item-price">₫160.000</div>
-                        <div class="cart-item-quantity">
-                            <div class="cart-item-counter">
-                                <span class="minus">-</span>
-                                <input type="text" value="1" />
-                                <span class="plus">+</span>
+                            <div class="cart-item-price">
+                                <%=item.item.price%>.000 VND
+                            </div>
+                            <div class="cart-item-quantity">
+                                <div class="cart-item-counter">
+                                    <span class="minus">-</span>
+                                    <input type="text" name="qty" value="<%=item.qty%>" />
+                                    <span class="plus">+</span>
+                                </div>
+                            </div>
+                            <div class="cart-item-amount">
+                                <%=item.item.price * item.qty%>.000 VND
+                            </div>
+                            <div class="cart-item-options">
+                                <a href="#">Delete</a>
                             </div>
                         </div>
-                        <div class="cart-item-amount">₫160.000</div>
-                        <div class="cart-item-options">
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <div class="cart-item-checkbox">
-                            <input type="checkbox">
-                        </div>
-                        <a class="cart-item-main" href="">
-                            <div class="cart-item-image">
-                                <img src="/images/cake-image1.png" alt="">
-                            </div>
-                            <div class="cart-item-name">Fully Customizable Sheet Cake</div>
-                        </a>
-                        <div class="cart-item-size"><select>
+                        <% }) %>
+                            <!-- <div class="cart-item">
+                                <div class="cart-item-checkbox">
+                                    <input type="checkbox">
+                                </div>
+                                <a class="cart-item-main" href="">
+                                    <div class="cart-item-image">
+                                        <img src="/images/cake-image1.png" alt="">
+                                    </div>
+                                    <div class="cart-item-name">Fully Customizable Sheet Cake</div>
+                                </a>
+                                <div class="cart-item-size"><select>
                                 <option value="0">S</option>
                                 <option value="0">M</option>
                                 <option value="0">L</option>
                               </select></div>
-                        <div class="cart-item-price">₫160.000</div>
-                        <div class="cart-item-quantity">
-                            <div class="cart-item-counter">
-                                <span class="minus">-</span>
-                                <input type="text" value="1" />
-                                <span class="plus">+</span>
-                            </div>
-                        </div>
-                        <div class="cart-item-amount">₫160.000</div>
-                        <div class="cart-item-options">
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
+                                <div class="cart-item-price">₫160.000</div>
+                                <div class="cart-item-quantity">
+                                    <div class="cart-item-counter">
+                                        <span class="minus">-</span>
+                                        <input type="text" value="1" />
+                                        <span class="plus">+</span>
+                                    </div>
+                                </div>
+                                <div class="cart-item-amount">₫160.000</div>
+                                <div class="cart-item-options">
+                                    <a href="#">Delete</a>
+                                </div>
+                            </div> -->
                 </div>
             </div>
         </div>

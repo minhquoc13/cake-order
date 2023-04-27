@@ -42,10 +42,10 @@ app.use(session({
 }))
 
 // Passport config
-const passportInit = require('./src/app/configs/passport')
-passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
+    //
+require('./src/app/configs/passport')
 
 app.use(flash())
 
@@ -71,7 +71,7 @@ app.set('view engine', 'ejs')
 // global middleware
 app.use((req, res, next) => {
     res.locals.session = req.session
-    res.locals.user = req.user;
+    res.locals.user = req.user
     next()
 })
 

@@ -15,8 +15,8 @@ function route(app) {
     app.use('/', homeRoute)
     app.use('/', authRoute)
     app.use('/', cakeRoute)
-    app.use('/api/v1/admin', adminRoute)
-    app.use('/api/v1/cart', isLoggedIn, cartRoute)
+        // app.use('/api/v1/admin', adminRoute)
+    app.use('/', isLoggedIn, cartRoute)
     app.use('/api/v1/order', orderRoute)
 
     // middleware

@@ -7,15 +7,7 @@ const cartSchema = new Schema({
         required: true,
     },
     items: {
-        type: [{
-            item: {
-                cake: {
-                    type: Object,
-                    required: true
-                }
-            }
-        }],
-        required: true
+        type: Object
     },
     totalQty: {
         type: Number,
