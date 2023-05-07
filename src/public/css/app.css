@@ -313,8 +313,10 @@ p {
   justify-content: left;
   gap: 10px;
   margin-bottom: 15px;
+  height: auto;
 }
 .cake-size {
+  cursor: pointer;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -322,6 +324,9 @@ p {
   border-radius: 100rem;
   width: fit-content;
   line-height: 1;
+}
+.cake-size:hover {
+  opacity: 0.8;
 }
 .cake-size:nth-child(1) {
   background-color: #e6e6ea;
@@ -344,7 +349,7 @@ p {
 .cake-delivery_price {
   margin-bottom: 20px;
 }
-.cake-button_buy {
+.cake-button_add-to-cart {
   cursor: pointer;
   border: 0;
   padding: 10px;
@@ -356,7 +361,7 @@ p {
   background-color: #fff;
   transition: all 0.3s linear;
 }
-.cake-button_buy:hover {
+.cake-button_add-to-cart:hover {
   box-shadow: inset 0 0 0 2px #000;
 }
 
@@ -486,7 +491,7 @@ p {
   .cake-delivery_price {
     margin-bottom: 10px;
   }
-  .cake-button_buy {
+  .cake-button_add-to-cart {
     font-size: 14px;
     padding: 7px;
   }
@@ -619,6 +624,10 @@ p {
   position: absolute;
   transform: translate(100%, -50%);
   right: 10px;
+}
+
+.is-visible {
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1024px) {

@@ -4,7 +4,6 @@ const { BadRequestError, NotFoundError, UnauthenticatedError } = require('../err
 
 const createCake = async(req, res) => {
     // req.body.createdBy = req.user['id']
-    req.body.createdBy = 'shop'
     const size = req.body.size
     const lastPriceProp = Object.keys(size).pop();
     const lastPrice = size[lastPriceProp]

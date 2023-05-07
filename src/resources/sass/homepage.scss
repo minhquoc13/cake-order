@@ -200,8 +200,10 @@
         justify-content: left;
         gap: 10px;
         margin-bottom: 15px;
+        height: auto;
     }
     &-size {
+        cursor: pointer;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -209,6 +211,9 @@
         border-radius: 100rem;
         width: fit-content;
         line-height: 1;
+    }
+    &-size:hover {
+        opacity: 0.8;
     }
     &-size:nth-child(1) {
         background-color: #e6e6ea;
@@ -231,7 +236,7 @@
     &-delivery_price {
         margin-bottom: 20px;
     }
-    &-button_buy {
+    &-button_add-to-cart {
         cursor: pointer;
         border: 0;
         padding: 10px;
@@ -243,7 +248,7 @@
         background-color: #fff;
         transition: all 0.3s linear;
     }
-    &-button_buy:hover {
+    &-button_add-to-cart:hover {
         box-shadow: inset 0 0 0 2px #000;
     }
 }
@@ -377,7 +382,7 @@
     .cake-delivery_price {
         margin-bottom: 10px;
     }
-    .cake-button_buy {
+    .cake-button_add-to-cart {
         font-size: 14px;
         padding: 7px;
     }

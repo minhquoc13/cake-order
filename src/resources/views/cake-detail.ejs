@@ -38,18 +38,19 @@
                             <h3 class="cake-name">
                                 <%= cake.name %>
                             </h3>
-                            <span class="cake-price"><%= cake.priceDisplay %> VND</span>
+                            <span class="cake-price <%= cake._id %>"><%= cake.priceDisplay %> VND</span>
                             <div class="cake-sizes">
                                 <% for (let i = 0; i < cake.sizeDisplay.length; i++)  { %>
-                                    <span class="cake-size"><%= cake.sizeDisplay[i] %></span>
+                                    <span class="cake-size" data-id="<%= cake._id %>" data-size="<%= cake.sizeDisplay[i] %>" data-price="<%= cake.size[cake.sizeDisplay[i]] %>" data-cake="<%= JSON.stringify(cake) %>">
+                                        <%= cake.sizeDisplay[i] %></span>
                                     <% } %>
                             </div>
                             <div class="cake-counter">
                                 <span class="minus">-</span>
-                                <input type="text" value="1" />
+                                <input type="text" name="qty" value="1" />
                                 <span class="plus">+</span>
                             </div>
-                            <a class="button cake-button_add-to-cart" href="#">Add to cart</a>
+                            <a id="<%= cake._id %>" class="button cake-button_add-to-cart" data-cake="">Add to cart</a>
                             <div class="cake-desc">
                                 <h4 class="cake-desc-title">Descriptions</h4>
                                 <p class="cake-desc-content">

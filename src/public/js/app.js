@@ -13,13 +13,13 @@ cakeSizes.forEach((btn) => {
         const originalPrice = cake['priceDisplay'] + ' VND'
         priceCake.textContent = price + ' VND'
             // click size 
+        console.log(btn)
         allSizeActived.forEach(box => {
-            // ✅ Remove class from each element
-            box.classList.remove('size-actived');
+            if (btn !== box) {
+                box.classList.remove('size-actived')
+            }
+        })
 
-            // ✅ Add class to each element
-            // box.classList.add('small');
-        });
         if (btn.classList.contains('size-actived')) {
             btn.classList.remove('size-actived')
             addToCartButton.setAttribute("data-cake", "")
@@ -29,7 +29,6 @@ cakeSizes.forEach((btn) => {
             let cake1 = JSON.parse(btn.dataset.cake)
             cake1.price = Number(price)
             cake1.size = size
-            console.log(cake1)
             addToCartButton.setAttribute("data-cake", JSON.stringify(cake1))
         }
     })
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     thumbnails.mount();
 });
 // --------------------------------------------------------
-let addToCart = document.querySelectorAll('.cake-button_buy')
+let addToCart = document.querySelectorAll('.cake-button_add-to-cart')
 
 function updateCart(cake) {
     axios.post('/api/v1/cart/update-cart', cake).then(res => {

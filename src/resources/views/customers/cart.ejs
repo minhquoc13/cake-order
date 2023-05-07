@@ -15,57 +15,63 @@
                     <div class="cart-amount">Amount</div>
                     <div class="cart-options">Options</div>
                 </div>
-                <div class="cart-list">
-                    <div class="cart-list-header">
-                        <div class="cart-list-checkbox">
-                            <input type="checkbox">
-                        </div>
-                        <div class="cart-list-header-shop">
-                            <div class="cart-list-icon">
-                                <img src="/images/store-solid.svg" alt="">
-                            </div>
-                            <span class="cart-list-shop_name font-bold">Bakery Shop</span>
-                        </div>
+                <% if(!cartItemsArray) { %>
+                    <div class="empty_cart">
+                        <span>Your cart is empty.</span>
                     </div>
-                    <% cartItemsArray.forEach(function(item) { %>
-                        <div class="cart-item">
-                            <div class="cart-item-checkbox">
-                                <input type="checkbox">
-                            </div>
-                            <a class="cart-item-main" href="">
-                                <div class="cart-item-image">
-                                    <img src="/images/cake-image1.png" alt="">
+                    <% } else {  %>
+                        <% for (const property in itemsByCreator) { %>
+                            <div class="cart-list">
+                                <div class="cart-list-header">
+                                    <div class="cart-list-checkbox">
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="cart-list-header-shop">
+                                        <div class="cart-list-icon">
+                                            <img src="/images/store-solid.svg" alt="">
+                                        </div>
+                                        <span class="cart-list-shop_name font-bold"><%= property %></span>
+                                    </div>
                                 </div>
-                                <div class="cart-item-name">
-                                    <%=item.item.name%>
-                                </div>
-                            </a>
-                            <div class="cart-item-size">
-                                <select>
-                                <option value="<%=item.item.size%>"><%=item.item.size%></option>
+                                <% itemsByCreator[property].forEach(function(item) { %>
+                                    <div class="cart-item">
+                                        <div class="cart-item-checkbox">
+                                            <input type="checkbox">
+                                        </div>
+                                        <a class="cart-item-main" href="">
+                                            <div class="cart-item-image">
+                                                <img src="/images/cake-image1.png" alt="">
+                                            </div>
+                                            <div class="cart-item-name">
+                                                <%=item.name%>
+                                            </div>
+                                        </a>
+                                        <div class="cart-item-size">
+                                            <select>
+                                <option value="<%=item.size%>"><%=item.size%></option>
                                 <option value="0">S</option>
                                 <option value="0">M</option>
                                 <option value="0">L</option>
                               </select></div>
-                            <div class="cart-item-price">
-                                <%=item.item.price%>.000 VND
-                            </div>
-                            <div class="cart-item-quantity">
-                                <div class="cart-item-counter">
-                                    <span class="minus">-</span>
-                                    <input type="text" name="qty" value="<%=item.qty%>" />
-                                    <span class="plus">+</span>
-                                </div>
-                            </div>
-                            <div class="cart-item-amount">
-                                <%=item.item.price * item.qty%>.000 VND
-                            </div>
-                            <div class="cart-item-options">
-                                <a href="#">Delete</a>
-                            </div>
-                        </div>
-                        <% }) %>
-                            <!-- <div class="cart-item">
+                                        <div class="cart-item-price">
+                                            <%=item.price%>.000 VND
+                                        </div>
+                                        <div class="cart-item-quantity">
+                                            <div class="cart-item-counter">
+                                                <span class="minus">-</span>
+                                                <input type="text" name="qty" value="<%=item.qty%>" />
+                                                <span class="plus">+</span>
+                                            </div>
+                                        </div>
+                                        <div class="cart-item-amount">
+                                            <%=item.price * item.qty%>.000 VND
+                                        </div>
+                                        <div class="cart-item-options">
+                                            <a href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                    <% })}} %>
+                                        <!-- <div class="cart-item">
                                 <div class="cart-item-checkbox">
                                     <input type="checkbox">
                                 </div>
@@ -93,7 +99,7 @@
                                     <a href="#">Delete</a>
                                 </div>
                             </div> -->
-                </div>
+                            </div>
             </div>
         </div>
     </div>

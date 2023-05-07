@@ -136,6 +136,10 @@
     right: 10px;
 }
 
+.is-visible {
+    overflow: hidden;
+}
+
 @media screen and (max-width: 1024px) {
     .cake-detail-related {
         .cake-container {
